@@ -2,19 +2,19 @@
 let arrNum = prompt(`Введите количество чисел в массиве`);
 let arr = new Array(arrNum);
 let i = 0;
+let sum = 0;
 
-for (let i=0; i<arrNum; i++) {
-  arr[i]=prompt(`Введите число`);
+for (let i = 0; i<arrNum; i++) {
+  arr[i]=prompt(`Введите число ${i}`);
+  if (arr[i] > 0) {
+    sum += +arr[i];
+  }
 }
 
-let summa = 0;
-
-for (let i=0; (i<arrNum && arr[i] > 0); i++) {
-  summa = summa + +arr[i];
-}
+console.log(sum);
 
 
-alert(`Сумма положительных чисел = ${summa}`);
+alert(`Сумма положительных чисел = ${sum}`);
 
 //Задача №2 Посчитать выражение макс(a*b*c,а+b+c) + 3
 
@@ -35,49 +35,57 @@ let x = prompt(`Введите координату по оси Х`);
 let y = prompt(`Введите коррдинату по оси Y`);
 
 if ((+x > 0) && (+y > 0)) {
-  alert("Точка во 2-ой четверти");
+  alert("Точка в 1-ой четверти");
 }
   else if ((+x > 0) && (+y < 0)) {
-    alert("Точка во 4-ой четверти");
+    alert("Точка в 4-ой четверти");
   }
     else if ((+x < 0) && (+y > 0)) {
-      alert("Точка в 1-ой четверти");
+      alert("Точка во 2-ой четверти");
     }
       else {
         alert("Точка во 3-ей четверти");
       }
 //Задача №4 найти min,max, min index, max index
-let rndNum = prompt(`Введите длину массива`)
-let arrRnd= [];
+let rndNum = prompt(`Введите длину массива`);
+let arrRnd = [];
 let arrMin = 0;
 let arrMax = 0;
 let minInd = 0;
 let maxInd = 0;
 
 for (let i = 0; i < rndNum; i++) {
-  arrRnd[i] = Math.round( Math.random() * 100 );
+  arrRnd[i] = Math.floor(Math.random()*100);
 }
 
-console.log(arrRnd)
+console.log(arrRnd);
+alert(arrRnd);
 
-for (let t = 0; t < rndNum; t++) {
-  if (arrRnd[t] >= arrMax) {
-    arrMax = arrRnd[t];
-    maxInd = t;
+for (i = 0; i < rndNum; i++) {
+  if (arrMax <= arrRnd[i]) {
+    arrMax = arrRnd[i];
+    maxInd = i;
   }
    
-  if (arrRnd[t] <= arrMin) {
-    arrMin = arrRnd[t];
-    minInd = t;
+for (i = 0; i < rndNum; i++) 
+  if (arrMin >= arrRnd[i]) {
+    arrMin = arrRnd[i];
+    minInd = i;
   }
 }
 
 alert(`Минимум ${arrMin} с индексом ${minInd}, максимум ${arrMax} с индексом ${arrMin}`);
 
-
-
 //Задача №5 Сумма элементов массива с нечётными индексами
+let sumNech = 0;
 
+for (i = 0; i < rndNum; i++) {
+  if ((i % 2)) > 0) {
+    sumNech += arrRnd[i];
+  }
+}
+
+console.log(sumNech);
 
 
 //6. Найти сумму чётных чисел и их количество в диапазоне от 1 до 99 
@@ -109,9 +117,9 @@ for (b = 0; b <= a; b++) {
 
 if (c === false) {
   alert(`Число ${a} простое`);
-    else {
+    //else {
       alert(`Число ${a} не простое`);
-    }
+    //}
 }
 
 
